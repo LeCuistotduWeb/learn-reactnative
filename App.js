@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import DefaultLayout from './layouts/layout-default'
-import UiViews from './views/ui-views';
+import UiViews from './views/ui-view';
 // import shantellSansRegular from './assets/fonts/ShantellSans-Regular.ttf'
 // import shantellSansBold from './assets/fonts/ShantellSans-Bold.ttf'
 import ShoppingList from './components/shopping-list/shopping-list';

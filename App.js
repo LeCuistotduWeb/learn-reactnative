@@ -1,20 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import DefaultLayout from './layouts/layout-default'
+import UiViews from './views/ui-views';
+// import shantellSansRegular from './assets/fonts/ShantellSans-Regular.ttf'
+// import shantellSansBold from './assets/fonts/ShantellSans-Bold.ttf'
+import ShoppingList from './components/shopping-list/shopping-list';
+import { useFonts } from '@expo-google-fonts/days-one';
+import LoadingView from './views/loading-view';
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    'ShantellSansRegular': require('./assets/fonts/ShantellSans-Regular.ttf'),
+  });
+  
+  if (!fontsLoaded) {
+    return <LoadingView/>;
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <DefaultLayout>
+        <ShoppingList/>
+        {/* <UiViews/> */}
+    </DefaultLayout>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
